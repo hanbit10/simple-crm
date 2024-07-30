@@ -24,6 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AppComponent {
   constructor(private router: Router) {}
-  title = 'dabubble';
+  title = 'simple-crm';
   showFiller = false;
 }
