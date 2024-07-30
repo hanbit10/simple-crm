@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {
@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { User } from './../../../models/user.class';
+import { addDoc, collection, Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dialog-add-user',
@@ -35,13 +36,19 @@ import { User } from './../../../models/user.class';
   styleUrl: './dialog-add-user.component.scss',
 })
 export class DialogAddUserComponent {
+  firestore: Firestore = inject(Firestore);
   user = new User();
   birthDate!: Date;
 
   constructor() {}
 
-  saveUser() {
+  async saveUser() {
     this.user.birthDate = this.birthDate.getTime();
     console.log('Current user is', this.user);
+    await addDoc(collection(this.firestore, 'users'), this.user.toJSON()).then(
+      (result: any) => {
+        console.log('Added User', result);
+      }
+    );
   }
 }
