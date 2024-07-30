@@ -1,0 +1,31 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background and elements -->
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#36a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#09c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#36a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#09c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Stylized Manager Icon -->
+  <circle cx="50" cy="50" r="25" fill="url(#grad1)" />
+  <circle cx="50" cy="35" r="12" fill="white" />
+  <path d="M 35 50 Q 50 65, 65 50" fill="none" stroke="white" stroke-width="4" />
+
+  <!-- Customer Icons -->
+  <circle cx="100" cy="30" r="12" fill="#0099ff" />
+  <circle cx="150" cy="30" r="12" fill="#00ccff" />
+  <circle cx="125" cy="70" r="12" fill="#00ffff" />
+
+  <!-- Connection Lines -->
+  <line x1="50" y1="45" x2="100" y2="30" stroke="#36a" stroke-width="2" />
+  <line x1="50" y1="45" x2="150" y2="30" stroke="#36a" stroke-width="2" />
+  <line x1="50" y1="45" x2="125" y2="70" stroke="#36a" stroke-width="2" />
+
+  <!-- Text "S-CRM" -->
+  <text x="180" y="60" font-family="Poppins, sans-serif" font-size="40" fill="url(#textGradient)">SCRM</text>
+</svg>
