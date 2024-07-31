@@ -7,7 +7,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
 import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from '../../../models/user.class';
 import {
@@ -17,6 +16,7 @@ import {
   onSnapshot,
 } from '@angular/fire/firestore';
 import { query } from '@angular/animations';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -29,6 +29,7 @@ import { query } from '@angular/animations';
     MatTooltipModule,
     MatDialogModule,
     MatCardModule,
+    RouterModule,
   ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
@@ -42,8 +43,10 @@ export class UserComponent implements OnInit {
     onSnapshot(collection(this.firestore, 'users'), (querySnapshot) => {
       this.allUsers = [];
       querySnapshot.forEach((doc: any) => {
-        console.log('received Changes from DB', doc.data());
-        this.allUsers.push(doc.data());
+        let data = doc.data();
+        data.id = doc.id;
+        console.log('received Changes from DB', data);
+        this.allUsers.push(data);
       });
     });
   }

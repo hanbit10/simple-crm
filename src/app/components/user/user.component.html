@@ -5,11 +5,11 @@
       <th>Email</th>
       <th>City</th>
     </tr>
-    @for (users of allUsers; track users) {
-    <tr>
-      <td>{{ users.firstName }} {{ users.lastName }}</td>
-      <td>{{ users.email }}</td>
-      <td>{{ users.city }}</td>
+    @for (user of allUsers; track user) {
+    <tr [routerLink]="['/user/' + user.id]">
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.city }}</td>
     </tr>
     }
   </table>
