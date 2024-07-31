@@ -5,16 +5,13 @@
       <th>Email</th>
       <th>City</th>
     </tr>
+    @for (users of allUsers; track users) {
     <tr>
-      <td>John Doe</td>
-      <td>YlT5&#64;example.com</td>
-      <td>New York</td>
+      <td>{{ users.firstName }} {{ users.lastName }}</td>
+      <td>{{ users.email }}</td>
+      <td>{{ users.city }}</td>
     </tr>
-    <tr>
-      <td>John Doe</td>
-      <td>YlT5&#64;example.com</td>
-      <td>New York</td>
-    </tr>
+    }
   </table>
 </mat-card>
 <button

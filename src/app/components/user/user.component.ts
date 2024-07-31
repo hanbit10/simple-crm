@@ -36,11 +36,14 @@ import { query } from '@angular/animations';
 export class UserComponent implements OnInit {
   firestore: Firestore = inject(Firestore);
   user: User = new User();
+  allUsers: User[] = [];
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {
     onSnapshot(collection(this.firestore, 'users'), (querySnapshot) => {
+      this.allUsers = [];
       querySnapshot.forEach((doc: any) => {
         console.log('received Changes from DB', doc.data());
+        this.allUsers.push(doc.data());
       });
     });
   }

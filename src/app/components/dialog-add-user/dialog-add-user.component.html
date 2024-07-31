@@ -11,7 +11,7 @@
         [disabled]="loading"
         [(ngModel)]="user.firstName"
         matInput
-        placeholder="Placeholder"
+        placeholder="First Name"
       />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
@@ -21,9 +21,20 @@
         [disabled]="loading"
         [(ngModel)]="user.lastName"
         matInput
-        placeholder="Placeholder"
+        placeholder="Last Name"
       />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="width-100" appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input
+        [disabled]="loading"
+        [(ngModel)]="user.email"
+        matInput
+        placeholder="E-mail"
+      />
     </mat-form-field>
   </div>
   <div>
@@ -51,7 +62,7 @@
         [disabled]="loading"
         [(ngModel)]="user.street"
         matInput
-        placeholder="Placeholder"
+        placeholder="Street + House No."
       />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
@@ -63,7 +74,7 @@
         [disabled]="loading"
         [(ngModel)]="user.zipCode"
         matInput
-        placeholder="Placeholder"
+        placeholder="Zip Code"
       />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
@@ -73,13 +84,17 @@
         [disabled]="loading"
         [(ngModel)]="user.city"
         matInput
-        placeholder="Placeholder"
+        placeholder="City"
       />
       <!-- <mat-hint>Please enter a name</mat-hint> -->
     </mat-form-field>
   </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button>Cancel</button>
-  <button mat-button (click)="saveUser()" cdkFocusInitial>Save</button>
+  <button [disabled]="loading" mat-button (click)="dialogRef.close()">
+    Cancel
+  </button>
+  <button [disabled]="loading" mat-button (click)="saveUser()" cdkFocusInitial>
+    Save
+  </button>
 </mat-dialog-actions>
