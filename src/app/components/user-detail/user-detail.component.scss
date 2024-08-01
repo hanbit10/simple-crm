@@ -1,4 +1,28 @@
 .user-detail-header {
   min-height: 250px;
-  background-color: #c1002a;
+  background-color: #c62749;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  color: white;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}
+
+.user-details {
+  height: 100px;
+  margin-left: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  h2 {
+    margin: 0;
+  }
 }
